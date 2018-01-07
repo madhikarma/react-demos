@@ -1,6 +1,7 @@
 
-// Custom component element
-// TODO: (SM) why can't this be an external file that's imported?
+
+// // Custom component element
+// // TODO: (SM) why can't this be an external file that's imported?
 class Hello extends React.Component {
   render() {
     return React.createElement(
@@ -23,4 +24,6 @@ const element = React.createElement(
 );
 
 var appRoot = document.getElementById('app');
+
 ReactDOM.render(React.createElement(Hello, null), appRoot);
+// ReactDOM.render(element, appRoot);

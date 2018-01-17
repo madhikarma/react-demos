@@ -15,6 +15,8 @@ console.log(add(55, 1, 1001));
 
 // this keyword is no longer bound with arrow functions
 
+// es6 method def syntax
+
 var user = {
   name: 'Andrew',
   cities: ['Philadelphia', 'New York', 'Dublin'],
@@ -24,10 +26,6 @@ var user = {
     return this.cities.map(function (city) {
       return _this.name + ' has lived in ' + city;
     });
-    // anonymous functions cannot access var outside of scope
-    // this.cities.forEach((city) => {
-    //   console.log(this.name + ' has lived in' + city);
-    // });
   }
 };
 console.log(user.printPlacesLived());

@@ -1,4 +1,3 @@
-'use strict';
 
 // Newer JS functions stored in vars / consts / lets
 // const square = function(x) {
@@ -28,7 +27,5 @@
 // const getFirstName = (name) => {
 //   return name.split(' ')[0];
 // };
-var getFirstName = function getFirstName(name) {
-  return name.split(' ')[0];
-};
+const getFirstName = (name) => name.split(' ')[0];
 console.log(getFirstName('Mike Smith'));

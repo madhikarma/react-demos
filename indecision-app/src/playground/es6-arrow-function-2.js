@@ -1,5 +1,3 @@
-'use strict';
-
 // arguments object is no longer bound wth arrow functions
 
 // const add = function(a, b) {
@@ -7,22 +5,20 @@
 //   return a + b;
 // };
 
-var add = function add(a, b) {
+const add = (a, b) => {
   // console.log(arguments)
   return a + b;
-};
+}
 console.log(add(55, 1, 1001));
 
 // this keyword is no longer bound with arrow functions
 
-var user = {
+const user  = {
   name: 'Andrew',
   cities: ['Philadelphia', 'New York', 'Dublin'],
-  printPlacesLived: function printPlacesLived() {
-    var _this = this;
-
-    return this.cities.map(function (city) {
-      return _this.name + ' has lived in ' + city;
+  printPlacesLived: function() {
+    return this.cities.map( (city) => {
+      return this.name + ' has lived in ' + city;
     });
     // anonymous functions cannot access var outside of scope
     // this.cities.forEach((city) => {

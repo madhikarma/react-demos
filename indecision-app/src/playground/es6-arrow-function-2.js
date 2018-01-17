@@ -27,13 +27,10 @@ console.log(user.printPlacesLived());
 // Challenge area
 
 const multiplier = {
-  // numbers = array of numbers [1, 6]
-  // multiplyBy = single number: 2 
-  // multiply - return a new array where numbesr have been multiplied
   numbers: [1, 2, 3],
   multiplyBy: 2,
   multiply() {
-    return this.numbers.map( (number) => (number * this.multiplyBy) );
+    return this.numbers.map((number) => number * this.multiplyBy);
   }
 };
 

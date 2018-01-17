@@ -12,9 +12,9 @@ var onFormSubmit = function onFormSubmit(event) {
     var option = event.target.elements.option.value;
     if (option) {
         app.options.push(option);
+        event.target.elements.option.value = ' ';
+        renderApp();
     }
-    event.target.elements.option.value = ' ';
-    renderApp();
 };
 
 var appRoot = document.getElementById('app');

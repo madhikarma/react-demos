@@ -10,9 +10,9 @@ const onFormSubmit = (event) => {
     const option = event.target.elements.option.value
     if (option) {
         app.options.push(option);
+        event.target.elements.option.value = ' ';
+        renderApp();
     }
-    event.target.elements.option.value = ' ';
-    renderApp();
 };
 
 const appRoot = document.getElementById('app');

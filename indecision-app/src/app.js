@@ -15,6 +15,9 @@ const onFormSubmit = (event) => {
     }
 };
 
+// create remove all button above list
+// on click -> wipe the array -> re-render
+
 const appRoot = document.getElementById('app');
 
 const renderApp = () => {

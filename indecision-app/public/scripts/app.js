@@ -4,8 +4,8 @@ console.log('App.js is running!');
 
 var app = {
     title: 'Indecision App',
-    subtitle: 'A react web app for making decisions'
-    // options: ['One', 'Two']
+    subtitle: 'A react web app for making decisions',
+    options: ['One', 'Two']
 };
 var template = React.createElement(
     'div',

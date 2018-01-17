@@ -1,18 +1,17 @@
 console.log('App.js is running!');
 
-// JSX
-
 var app = {
     title: 'Indecision App',
-    subtitle: 'A react web app for making decisions'
+    subtitle: 'A react web app for making decisions',
+    // options: ['One', 'Two']
 }
 var template = (
     <div>
         <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options && app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
         <ol>
             <li>item one</li>
-            <li>item two</li>
             <li>item two</li>
         </ol>
     </div>
@@ -38,4 +37,5 @@ var templateTwo = (
     </div>
 );
 var appRoot = document.getElementById('app');
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
+// ReactDOM.render(templateTwo, appRoot);

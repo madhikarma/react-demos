@@ -20,6 +20,8 @@ const onRemoveAll = (event) => {
     renderApp();
 }
 
+const numbers = [55, 101, 1000];
+
 // create remove all button above list
 // on click -> wipe the array -> re-render
 
@@ -34,8 +36,11 @@ const renderApp = () => {
             <p>{app.options.length}</p>
             <button onClick={onRemoveAll}>Remove All</button>
             <ol>
-                <li>item one</li>
-                <li>item two</li>
+                {
+                    app.options.map( (option) => {
+                        return <li key={option}>Option: {option}</li>
+                    })                    
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>

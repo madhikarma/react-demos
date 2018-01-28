@@ -15,6 +15,11 @@ const onFormSubmit = (event) => {
     }
 };
 
+const onRemoveAll = (event) => {
+    app.options = [];
+    renderApp();
+}
+
 // create remove all button above list
 // on click -> wipe the array -> re-render
 
@@ -27,6 +32,7 @@ const renderApp = () => {
             {app.subtitle && <p>{app.subtitle}</p>}
             <p>{app.options && app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
             <p>{app.options.length}</p>
+            <button onClick={onRemoveAll}>Remove All</button>
             <ol>
                 <li>item one</li>
                 <li>item two</li>
@@ -40,7 +46,3 @@ const renderApp = () => {
     ReactDOM.render(template, appRoot);
 };
 renderApp();
-
-// create render func that renders new jsx
-// call on init
-// call it after options array is added to

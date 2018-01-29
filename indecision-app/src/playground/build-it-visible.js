@@ -1,10 +1,6 @@
 console.log('Build it visible js is running!');
 
-const app = {
-  title: "Visibility Toggle",
-  showDetails: true
-}
-
+let visibility = true
 const appRoot = document.getElementById('app');
 
 const toggle = () => {
@@ -12,21 +8,14 @@ const toggle = () => {
   render();
 }
 
-const createDetailsText = () => {
-  if(app.showDetails) {
-    return <p>Hey. These are some details you can now see!</p>
-  }
-}
 const render = ()  => {
   const template  = (
     <div>
-    <h1>{app.title}</h1>
+    <h1>Visibility Toggle</h1>
     <button onClick={toggle}>
-      {app.showDetails ? 'Show details' : 'Hide details'}
+      {visibility ? 'Show details' : 'Hide details'}
     </button>
-    {
-      createDetailsText()
-    }
+    {visibility ? <p>Hey. These are some details you can now see!</p> : null}
     </div>
   )
   ReactDOM.render(template, appRoot);

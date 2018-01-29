@@ -2,11 +2,7 @@
 
 console.log('Build it visible js is running!');
 
-var app = {
-  title: "Visibility Toggle",
-  showDetails: true
-};
-
+var visibility = true;
 var appRoot = document.getElementById('app');
 
 var toggle = function toggle() {
@@ -14,15 +10,6 @@ var toggle = function toggle() {
   render();
 };
 
-var createDetailsText = function createDetailsText() {
-  if (app.showDetails) {
-    return React.createElement(
-      'p',
-      null,
-      'Hey. These are some details you can now see!'
-    );
-  }
-};
 var render = function render() {
   var template = React.createElement(
     'div',
@@ -30,14 +17,18 @@ var render = function render() {
     React.createElement(
       'h1',
       null,
-      app.title
+      'Visibility Toggle'
     ),
     React.createElement(
       'button',
       { onClick: toggle },
-      app.showDetails ? 'Show details' : 'Hide details'
+      visibility ? 'Show details' : 'Hide details'
     ),
-    createDetailsText()
+    visibility ? React.createElement(
+      'p',
+      null,
+      'Hey. These are some details you can now see!'
+    ) : null
   );
   ReactDOM.render(template, appRoot);
 };

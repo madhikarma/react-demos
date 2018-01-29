@@ -6,7 +6,7 @@ var visibility = true;
 var appRoot = document.getElementById('app');
 
 var toggle = function toggle() {
-  app.showDetails = !app.showDetails;
+  visibility = !visibility;
   render();
 };
 
@@ -24,11 +24,15 @@ var render = function render() {
       { onClick: toggle },
       visibility ? 'Show details' : 'Hide details'
     ),
-    visibility ? React.createElement(
-      'p',
+    visibility && React.createElement(
+      'div',
       null,
-      'Hey. These are some details you can now see!'
-    ) : null
+      React.createElement(
+        'p',
+        null,
+        'Hey. These are some details you can now see!'
+      )
+    )
   );
   ReactDOM.render(template, appRoot);
 };

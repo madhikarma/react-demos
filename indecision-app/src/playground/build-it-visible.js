@@ -4,7 +4,7 @@ let visibility = true
 const appRoot = document.getElementById('app');
 
 const toggle = () => {
-  app.showDetails = !app.showDetails;
+  visibility = !visibility;
   render();
 }
 
@@ -15,7 +15,11 @@ const render = ()  => {
     <button onClick={toggle}>
       {visibility ? 'Show details' : 'Hide details'}
     </button>
-    {visibility ? <p>Hey. These are some details you can now see!</p> : null}
+    {visibility &&
+    <div>
+       <p>Hey. These are some details you can now see!</p>
+    </div>
+    }
     </div>
   )
   ReactDOM.render(template, appRoot);

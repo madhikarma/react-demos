@@ -1,6 +1,3 @@
-// Setup constructor to habe name and age (default to 0)
-// getDescription = "Andrew Mead is ${age} year(s) old.""
-
 class Person {
     constructor(name = 'Anonymous', age = 0) {
         this.name = name;
@@ -13,10 +10,29 @@ class Person {
         return `${this.name} is ${this.age} year(s) old.`;
     }
 }
-const me = new Person('Andrew Mead', 26);
-console.log(me.getGreeting());
+
+class Student extends Person {
+    constructor(name, age, major) {
+        super(name, age);
+        this.major = major;
+    }
+    hasMajor() {
+        return !!this.major;
+    }
+    getDescription() {
+        let description = super.getDescription();
+        // return `${description} and their major is ${this.major}`;
+        if (this.hasMajor()) {
+            description = description + ` Their major is ${this.major}.`;
+        }
+        return description;
+    }
+}
+
+const me = new Student('Andrew Mead', 26, 'Computer Science');
+console.log(me);
 console.log(me.getDescription());
 
-const other = new Person();
-console.log(other.getGreeting());
+const other = new Student();
+console.log(other);
 console.log(other.getDescription());

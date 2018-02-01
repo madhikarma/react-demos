@@ -17,7 +17,6 @@ class IndecisionApp extends React.Component {
 
 class Header extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 <h1>{this.props.title}</h1>
@@ -28,10 +27,13 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+    handlePick() {
+        alert('handle pick')
+    }
     render() {
         return (
             <div>
-                <button>What should i do?</button>
+                <button onClick={this.handlePick}>What should i do?</button>
             </div>
         );
     }
@@ -41,9 +43,13 @@ class Action extends React.Component {
 // render length of options array
 
 class Options extends React.Component {
+    removeAll() {
+        alert('remove all');
+    }
     render() {
         return (
             <div>
+                <button onClick={this.removeAll}>Remove all</button>
             {    
                 this.props.options.map( (option) => {
                     return <Option key={option} optionText={option}/> 

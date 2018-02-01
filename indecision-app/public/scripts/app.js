@@ -113,10 +113,17 @@ var Options = function (_React$Component4) {
     _createClass(Options, [{
         key: 'render',
         value: function render() {
+            var options = this.props.options;
             return React.createElement(
                 'div',
                 null,
-                this.props.options && this.props.options.length,
+                options.map(function (option) {
+                    return React.createElement(
+                        'p',
+                        { key: option },
+                        option
+                    );
+                }),
                 React.createElement(Option, null)
             );
         }

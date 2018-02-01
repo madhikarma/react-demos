@@ -19,17 +19,39 @@ class Action extends React.Component {
     }
 }
 
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options component here
+            </div>
+        )
+    }
+}
+
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                Add option component here
+            </div>
+        )
+    }
+}
+
 // challenge
 // create options component render "options component here"
 // add option ->
 
-function createJsx() {
-    return (
+
+const jsx = (
     <div>
         <h1>Title</h1>
         <Header />
         <Action />
-    </div>)
-}
+        <Options />
+        <AddOption />
+    </div>
+);
 
-ReactDOM.render(createJsx(), document.getElementById('app'))
+ReactDOM.render(jsx, document.getElementById('app'));

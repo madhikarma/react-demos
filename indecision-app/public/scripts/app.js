@@ -102,8 +102,9 @@ var Action = function (_React$Component3) {
     return Action;
 }(React.Component);
 
-// setup options prop for Options comp
-// render length of options array
+// 1. setup form
+// 2. wire up onSubmit
+// 3. handleAddOption -> fetch value typed if value exists then alert
 
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
@@ -150,12 +151,33 @@ var AddOption = function (_React$Component5) {
     }
 
     _createClass(AddOption, [{
+        key: 'onFormSubmit',
+        value: function onFormSubmit(event) {
+            event.preventDefault();
+            var option = event.target.elements.option.value;
+            if (option) {
+                // app.options.push(option);
+                // event.target.elements.option.value = ' ';
+                // renderApp();
+                alert(option);
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
-                'Add option component here'
+                React.createElement(
+                    'form',
+                    { onSubmit: this.onFormSubmit },
+                    React.createElement('input', { type: 'text', name: 'option' }),
+                    React.createElement(
+                        'button',
+                        null,
+                        'Add option'
+                    )
+                )
             );
         }
     }]);

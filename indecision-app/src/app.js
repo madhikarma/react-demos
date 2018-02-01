@@ -39,8 +39,9 @@ class Action extends React.Component {
     }
 }
 
-// setup options prop for Options comp
-// render length of options array
+// 1. setup form
+// 2. wire up onSubmit
+// 3. handleAddOption -> fetch value typed if value exists then alert
 
 class Options extends React.Component {
     removeAll() {
@@ -50,21 +51,34 @@ class Options extends React.Component {
         return (
             <div>
                 <button onClick={this.removeAll}>Remove all</button>
-            {    
-                this.props.options.map( (option) => {
-                    return <Option key={option} optionText={option}/> 
-                })
-            }
+                {    
+                    this.props.options.map( (option) => {
+                        return <Option key={option} optionText={option}/> 
+                    })
+                }
             </div>
         )
     }
 }
 
 class AddOption extends React.Component {
+    onFormSubmit(event) {
+        event.preventDefault();
+        const option = event.target.elements.option.value
+        if (option) {
+            // app.options.push(option);
+            // event.target.elements.option.value = ' ';
+            // renderApp();
+            alert(option);
+        }
+    };    
     render() {
         return (
             <div>
-                Add option component here
+                <form onSubmit={this.onFormSubmit}>
+                    <input type="text" name="option"/>
+                    <button>Add option</button>
+                </form>
             </div>
         )
     }

@@ -1,3 +1,16 @@
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>                
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        )
+    }
+}
+
 class Header extends React.Component {
     render() {
         return (
@@ -23,7 +36,7 @@ class Options extends React.Component {
     render() {
         return (
             <div>
-                Options component here
+                <Option />
             </div>
         )
     }
@@ -39,19 +52,17 @@ class AddOption extends React.Component {
     }
 }
 
+class Option extends React.Component {
+    render() {
+        return (
+            <div>
+                Option component here
+            </div>
+        )
+    }
+}
+
 // challenge
-// create options component render "options component here"
-// add option ->
+// nested Option -> Option component here
 
-
-const jsx = (
-    <div>
-        <h1>Title</h1>
-        <Header />
-        <Action />
-        <Options />
-        <AddOption />
-    </div>
-);
-
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));

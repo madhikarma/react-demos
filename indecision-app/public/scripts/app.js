@@ -154,7 +154,7 @@ var AddOption = function (_React$Component5) {
         key: 'onFormSubmit',
         value: function onFormSubmit(event) {
             event.preventDefault();
-            var option = event.target.elements.option.value;
+            var option = event.target.elements.option.value.trim();
             if (option) {
                 // app.options.push(option);
                 // event.target.elements.option.value = ' ';

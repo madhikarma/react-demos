@@ -1,28 +1,31 @@
-console.log('Build it visible js is running!');
-
-let visibility = true
-const appRoot = document.getElementById('app');
-
-const toggle = () => {
-  visibility = !visibility;
-  render();
-}
-
-const render = ()  => {
-  const template  = (
-    <div>
-    <h1>Visibility Toggle</h1>
-    <button onClick={toggle}>
-      {visibility ? 'Show details' : 'Hide details'}
-    </button>
-    {visibility &&
-    <div>
-       <p>Hey. These are some details you can now see!</p>
-    </div>
+class VisibilityToggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+    this.state = {
+      visible: false
     }
-    </div>
-  )
-  ReactDOM.render(template, appRoot);
-}
-
-render();
+  }
+  handleToggleVisibility() {
+    this.setState( (prevState) => {
+      return { visible: !prevState.visible }
+    })
+  }
+  render() {
+    return(
+      <div>
+        <h1>Visibility toggle</h1>
+        <button onClick={this.handleToggleVisibility}>
+          { this.state.visible ? 'Hide details' : 'Show details' }
+        </button>
+        { this.state.visible ?
+          <div>
+            <p>Hey, these are some details you can now see!</p>
+          </div>
+          : null
+        }
+      </div>
+    );
+  }
+};
+ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));

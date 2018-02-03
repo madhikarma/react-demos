@@ -26,10 +26,10 @@ class Counter extends React.Component {
     }
     handleReset() {
         console.log('handleReset clicked');
+
         this.setState( () => {
             return { count: 0 }
         })
-        console.log(this.state);
     }
     render() {
         return (

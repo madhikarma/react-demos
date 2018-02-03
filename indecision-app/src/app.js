@@ -1,3 +1,18 @@
+// Bind examples See Mozilla developer network docs for more info
+// const obj = {
+//     name: 'Vikram',
+//     getName() {
+//         return this.name;
+//     },
+// }
+
+// // const func  = function() {
+// //     console.log(this);
+// // }
+// // func();
+// const getName = obj.getName.bind({ name: 'Andrew'});
+// console.log(getName());
+
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
@@ -44,13 +59,18 @@ class Action extends React.Component {
 // 3. handleAddOption -> fetch value typed if value exists then alert
 
 class Options extends React.Component {
-    removeAll() {
-        alert('remove all');
+    constructor(props) {
+        super(props)
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+    handleRemoveAll() {
+        console.log(this.props.options);
+        alert('handleRemoveAll');
     }
     render() {
         return (
             <div>
-                <button onClick={this.removeAll}>Remove all</button>
+                <button onClick={this.handleRemoveAll}>Remove all</button>
                 {    
                     this.props.options.map( (option) => {
                         return <Option key={option} optionText={option}/> 

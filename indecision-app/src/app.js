@@ -3,6 +3,7 @@ class IndecisionApp extends React.Component {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
             options:  ['Thing one', 'Thing two', 'Thing four']
         }
@@ -19,6 +20,13 @@ class IndecisionApp extends React.Component {
         const option = this.state.options[randomNum];
         alert(option);
     }
+    handleAddOption(option) {
+        this.setState( (prevState) => {
+            return ( {
+                options: prevState.options.concat([option])
+            })
+        })
+    }
     render() {
         const title = 'Indecision';
         const subtitle = 'Put your life in the hands of a computer';
@@ -34,7 +42,9 @@ class IndecisionApp extends React.Component {
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions}
                 />
-                <AddOption />
+                <AddOption 
+                    handleAddOption={this.handleAddOption}
+                />
             </div>
         )
     }
@@ -78,20 +88,21 @@ class Options extends React.Component {
 }
 
 class AddOption extends React.Component {
-    onFormSubmit(event) {
+    constructor(props) {
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
+    handleAddOption(event) {
         event.preventDefault();
         const option = event.target.elements.option.value.trim();
         if (option) {
-            // app.options.push(option);
-            // event.target.elements.option.value = ' ';
-            // renderApp();
-            alert(option);
+            this.props.handleAddOption(option);
         }
     };    
     render() {
         return (
             <div>
-                <form onSubmit={this.onFormSubmit}>
+                <form onSubmit={this.handleAddOption}>
                     <input type="text" name="option"/>
                     <button>Add option</button>
                 </form>

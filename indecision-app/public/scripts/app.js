@@ -29,17 +29,12 @@ var Counter = function (_React$Component) {
     _createClass(Counter, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            try {
-                var count = localStorage.getItem('count');
-                if (count) {
-                    console.log('settning state', this.state.count);
-
-                    this.setState(function () {
-                        return { count: parseInt(count) };
-                    });
-                }
-            } catch (e) {
-                // Do nothing at all. Default constructor props logic
+            var stringCount = localStorage.getItem('count');
+            var count = parseInt(stringCount, 10);
+            if (!isNaN(count)) {
+                this.setState(function () {
+                    return { count: parseInt(count, 10) };
+                });
             }
         }
     }, {

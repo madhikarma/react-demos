@@ -44,4 +44,4 @@ Counter.defaultProps = {
     count: 0
 }
 
-ReactDOM.render(<Counter count={0}/>, document.getElementById('app'));
+ReactDOM.render(<Counter count={-10}/>, document.getElementById('app'));

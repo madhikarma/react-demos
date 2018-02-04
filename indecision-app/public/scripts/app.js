@@ -33,7 +33,7 @@ var Counter = function (_React$Component) {
             var count = parseInt(stringCount, 10);
             if (!isNaN(count)) {
                 this.setState(function () {
-                    return { count: parseInt(count, 10) };
+                    return { count: count };
                 });
             }
         }

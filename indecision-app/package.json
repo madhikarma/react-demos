@@ -5,10 +5,15 @@
   "author": "Shagun Madhikarmi",
   "license": "MIT",
   "scripts": {
-    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react && live-server public"
+    "serve": "live-server public",
+    "build": "webpack --watch",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
   "dependencies": {
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-react": "^6.24.1"
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "live-server": "1.2.0",
+    "webpack": "3.1.0"
   }
 }

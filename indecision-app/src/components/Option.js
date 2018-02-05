@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const Option = (props) => {
   return (
@@ -11,5 +10,4 @@ const Option = (props) => {
       </div>
   )
 }
-
 export default Option;

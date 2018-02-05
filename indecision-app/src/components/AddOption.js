@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class AddOption extends React.Component {
   constructor(props) {

@@ -1,14 +1,8 @@
 console.log('app.js is running');
 
-// import subtract, { square, add } from './utils.js'
-// console.log(square(4));
-// console.log(add(100, 23));
-// console.log(subtract(100, 81));
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import isSenior, { isAdult, canDrink } from './person.js'
-console.log(isAdult(18));
-console.log(canDrink(20));
-console.log(isSenior(65));
-
-// set default export and func
-// Grab default and call it
+const template = <p>This is JSX from webpack</p>;
+// const template = React.createElement('p', {}, 'testing 123');
+ReactDOM.render(template, document.getElementById('app'));

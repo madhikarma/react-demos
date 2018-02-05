@@ -5,7 +5,6 @@
   "author": "Shagun Madhikarmi",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build": "webpack --watch",
     "dev-server": "webpack-dev-server"
   },
@@ -13,6 +12,7 @@
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "1.2.0",

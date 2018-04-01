@@ -20,16 +20,15 @@ class ConnectedForm extends Component {
   }
 
   handleChange(event) {
-    const a = 4;
-
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleSubmit(event) {
-   event.preventDefault();
-   const { title } = this.state;  
-   const id = uuidv1();
-   this.props.addArticle( {title, id});
-   this.setState({ title: ""} );
+    event.preventDefault();
+    const { title } = this.state;
+    const id = uuidv1();
+    this.props.addArticle({ title, id });
+    this.setState({ title: "" });
   }
   render() {
     const { title } = this.state;
@@ -43,9 +42,15 @@ class ConnectedForm extends Component {
             id="title"
             value={title}
             onChange={this.handleChange}
-            />
+          />
         </div>
+        <button type="submit" className="btn btn-success btn-lg">
+          SAVE
+        </button>
       </form>
     );
   }
 }
+
+const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+export default Form;

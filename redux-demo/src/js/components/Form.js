@@ -1,24 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv2 from "uuid";
-import { addArticle } from "../actions";
+import { addArticle } from "../actions/index";
 
 const mapDispatchToProps = dispatch => {
   return {
     addArticle: article => dispatch(addArticle(article))
   };
-};
-
-const handleChange = event => {
-  this.setState({ [event.target.id]: event.target.value });
-};
-
-const handleSubmit = event => {
-  event.preventDefault();
-  const { title } = this.state;
-  const id = uuidv1();
-  this.props.addArticle({ title, id });
-  this.setState({ title: "" });
 };
 
 class ConnectedForm extends Component {
@@ -27,8 +15,21 @@ class ConnectedForm extends Component {
     this.state = {
       title: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(event) {
+    this.setState({ [event.target.id]: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const { title } = this.state;
+    const id = uuidv1();
+    this.props.addArticle({ title, id });
+    this.setState({ title: "" });
+  }
   render() {
     const { title } = this.state;
     return (
